@@ -15,6 +15,20 @@ function calcAge(birthYear) {
   function printAge() {
     const output = `you are ${age}, born in ${birthYear}`;
     console.log(output);
+
+    if (birthYear >= 1981 && birthYear <= 1996) {
+      var millenial = true;
+      const firstName = `Steven`;
+      // can have repeating variable names b/c they are in different scopes
+      const str = `Oh, and you're a millenial, ${firstName}`;
+      //   console.log(str);
+      console.log(firstName); // jS looks for variable name in current scope firstName === Steven != Joshua
+      console.log(millenial); // var variables are function scoped and ignore the block
+
+      function add(a, b) {
+        return a + b;
+      }
+    }
   }
   printAge();
 
