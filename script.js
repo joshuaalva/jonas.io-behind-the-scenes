@@ -40,3 +40,28 @@ function calcAge(birthYear) {
 // variable lookup
 const firstName = 'Joshua';
 calcAge(1993);
+
+// hoisting: makes somet ypes of variables accesible/usable in the code before they are actually decalred. Variables lifted to the top of their scope.
+
+// temporal dead zone
+const myName = `Joshua`;
+
+if (myName === `Joshua`) {
+  // temporal dead zone for job variable
+  console.log(`Joshua is a ${job}`);
+  const age = 2037 - 1989;
+  console.log(age);
+  // ---------------
+  // as if the variable didn't even exist
+  // every let and const variable has a temporal dead zone
+  // only safe to use after the tdz
+  const job = `teacher`;
+  //   console.log(x);
+}
+
+// why TDZ? makes it easier to avoid and catch errors
+// makes const variables actually work the way they are supposed too
+
+// why hoisting? using functions before actual declaration.
+// var hoisitng is just a byproduct
+// jS was never intended to become to huge language that it is today
