@@ -48,7 +48,7 @@ const myName = `Joshua`;
 
 if (myName === `Joshua`) {
   // temporal dead zone for job variable
-  console.log(`Joshua is a ${job}`);
+  //   console.log(`Joshua is a ${job}`);
   const age = 2037 - 1989;
   console.log(age);
   // ---------------
@@ -65,3 +65,7 @@ if (myName === `Joshua`) {
 // why hoisting? using functions before actual declaration.
 // var hoisitng is just a byproduct
 // jS was never intended to become to huge language that it is today
+
+var me = `Jonas`;
+let job = `teacher`;
+const year = 1991;
