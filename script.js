@@ -69,3 +69,5 @@ if (myName === `Joshua`) {
 var me = `Jonas`;
 let job = `teacher`;
 const year = 1991;
+
+// notes taken outside of vscode
