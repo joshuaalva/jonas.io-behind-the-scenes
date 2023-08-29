@@ -66,8 +66,33 @@ if (myName === `Joshua`) {
 // var hoisitng is just a byproduct
 // jS was never intended to become to huge language that it is today
 
-var me = `Jonas`;
-let job = `teacher`;
-const year = 1991;
+// console.log(me);
+// undefined
+// hoisted
+// console.log(job);
+// beginning of current scope send error
+// console.log(year);
+// dead zone again
 
-// notes taken outside of vscode
+// var me = `Jonas`;
+// let job = `teacher`;
+// const year = 1991;
+
+// Functions
+console.log(addDecl(2, 3));
+// able to call function declaration before it was actually called
+console.log(addExpr(2, 3));
+// const variable temperal dead zone
+// because it was defined with const
+console.log(addArrow(2, 3));
+// same thing happens with the arrow
+
+function addDecl(a, b) {
+  return a + b;
+}
+
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+const addArrow = (a, b) => a + b;
