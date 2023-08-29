@@ -120,3 +120,11 @@ let y = 2;
 const z = 3;
 
 // variables declared with let or const do not show up in the window object
+
+// the this keyword
+// thi keyword/ variable: special variable that is created for every execution content (every function) takes the value of (points to) the 'owner' of the function in which the this keyword is used.
+
+// this is NOT static. It depends on how the function is called, and its value is only assigned when the function is actually called.
+
+// method - this = <object that is calling the method>
+//
