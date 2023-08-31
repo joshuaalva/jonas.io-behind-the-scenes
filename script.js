@@ -127,4 +127,33 @@ const z = 3;
 // this is NOT static. It depends on how the function is called, and its value is only assigned when the function is actually called.
 
 // method - this = <object that is calling the method>
-//
+
+const jonas = {
+  name: `Joshua`,
+  year: 1999,
+  calcAge: function () {
+    return 2037 - this.year;
+  },
+};
+
+console.log(jonas.calcAge());
+
+// simple function call > this = undefined
+// arrow function > this = <this surrounding function(lexical this)>
+// arrow functions do not get their own this keyword
+// event listener > this = <DOM element that the handler is attached to>
+// new call, apply, bind method later in the course
+
+// this does NOT point to the function itself, and also NOT the its variable environment
+
+// the this keyword in action
+console.log(this); // the window object
+
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this);
+  // inside function call this is undefined
+  // because we are in strict mode
+};
+
+calcAge(1993);
