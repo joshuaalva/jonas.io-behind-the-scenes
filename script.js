@@ -147,13 +147,32 @@ console.log(jonas.calcAge());
 // this does NOT point to the function itself, and also NOT the its variable environment
 
 // the this keyword in action
-console.log(this); // the window object
+// console.log(this); // the window object
 
 const calcAge = function (birthYear) {
   console.log(2037 - birthYear);
-  console.log(this);
+  //   console.log(this);
   // inside function call this is undefined
   // because we are in strict mode
 };
 
 calcAge(1993);
+
+const calcAgeArrow = birthYear => {
+  console.log(2037 - birthYear);
+  //   console.log(this);
+  // this is window
+  // arrow function does not get its own this keyword
+};
+
+calcAge(1993);
+
+const matilda = {
+  year: 2027,
+};
+
+// method borrowing
+// from one object to another so we don't have to rewrite
+matilda.calcAge = jonas.calcAge;
+console.log(`here`);
+console.log(matilda.calcAge());
