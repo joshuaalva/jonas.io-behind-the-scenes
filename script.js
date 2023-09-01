@@ -101,13 +101,13 @@
 
 // fictional tiny example
 // var does not work with the imaginary function
-if (!numProducts) deleteShoppingCart();
+// if (!numProducts) deleteShoppingCart();
 
-var numProducts = 10;
+// var numProducts = 10;
 
-function deleteShoppingCart() {
-  console.log(`all products deleted`);
-}
+// function deleteShoppingCart() {
+//   console.log(`all products deleted`);
+// }
 
 // what are the best practices?
 // just do use var to declare variables
@@ -115,9 +115,9 @@ function deleteShoppingCart() {
 // should declare variables at the top of each scope
 // always declare functions first and use them after the declaration
 
-var x = 1;
-let y = 2;
-const z = 3;
+// var x = 1;
+// let y = 2;
+// const z = 3;
 
 // variables declared with let or const do not show up in the window object
 
@@ -128,15 +128,15 @@ const z = 3;
 
 // method - this = <object that is calling the method>
 
-const jonas = {
-  name: `Joshua`,
-  year: 1999,
-  calcAge: function () {
-    return 2037 - this.year;
-  },
-};
+// const jonas = {
+//   name: `Joshua`,
+//   year: 1999,
+//   calcAge: function () {
+//     return 2037 - this.year;
+//   },
+// };
 
-console.log(jonas.calcAge());
+// console.log(jonas.calcAge());
 
 // simple function call > this = undefined
 // arrow function > this = <this surrounding function(lexical this)>
@@ -149,30 +149,84 @@ console.log(jonas.calcAge());
 // the this keyword in action
 // console.log(this); // the window object
 
-const calcAge = function (birthYear) {
-  console.log(2037 - birthYear);
-  //   console.log(this);
-  // inside function call this is undefined
-  // because we are in strict mode
-};
+// const calcAge = function (birthYear) {
+//   console.log(2037 - birthYear);
+//   console.log(this);
+// inside function call this is undefined
+// because we are in strict mode
+// };
 
-calcAge(1993);
+// calcAge(1993);
 
-const calcAgeArrow = birthYear => {
-  console.log(2037 - birthYear);
-  //   console.log(this);
-  // this is window
-  // arrow function does not get its own this keyword
-};
+// const calcAgeArrow = birthYear => {
+//   console.log(2037 - birthYear);
+//   console.log(this);
+// this is window
+// arrow function does not get its own this keyword
+// };
 
-calcAge(1993);
+// calcAge(1993);
 
-const matilda = {
-  year: 2027,
-};
+// const matilda = {
+//   year: 2027,
+// };
 
 // method borrowing
 // from one object to another so we don't have to rewrite
-matilda.calcAge = jonas.calcAge;
-console.log(`here`);
-console.log(matilda.calcAge());
+// matilda.calcAge = jonas.calcAge;
+// console.log(`here`);
+// console.log(matilda.calcAge());
+
+// Regular Functions vs. Arrow Functions
+
+// not a code block but an object literal
+// all still in the global scope including the greet message
+// arrow function does not have a this
+// window object
+// const jonas = {
+//   firstName: `Joshua`,
+//   year: 1991,
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(2037 - this.year);
+
+// solution 1
+//     const self = this; // self or that
+//     const isMillenial = function () {
+//       console.log(self);
+//       console.log(self.year >= 1981 && self.year < 1996);
+//     };
+//     isMillenial();
+//   },
+
+// solution 2
+// uses this keyword from the parent scope
+// in this case it is jonas
+//     const isMillenial = () => {
+//       console.log(this);
+//       console.log(this.year >= 1981 && this.year < 1996);
+//     };
+//     isMillenial();
+//   },
+
+//   greet: () => console.log(`hey ${this.firstName}`),
+// };
+
+// jonas.greet();
+// jonas.calcAge();
+
+// arguements keyword
+// const addExpr = function (a, b) {
+//   console.log(arguments);
+//   return a + b;
+// };
+
+// addExpr(2, 5);
+// addExpr(2, 5, 8, 12);
+
+// var AddArrow = (a, b) => a + b;
+
+// arguements keyword only exist in regular functions
+// not very important in modern javascript
+
+// Primitives vs. Objects (primitive vs reference types)
