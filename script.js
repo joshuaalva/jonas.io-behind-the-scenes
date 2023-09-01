@@ -230,3 +230,82 @@
 // not very important in modern javascript
 
 // Primitives vs. Objects (primitive vs reference types)
+// primitives are objects, strings, booleans, etc...
+
+// let age = 30;
+// let oldAge = age;
+// age = 31;
+
+// console.log(age); // 31
+// console.log(oldAge); // 30
+
+// const me = {
+//   name: `jonas`,
+//   age: 30,
+// };
+
+// const friend = me;
+// friend.age = 27;
+// both are coming out as age 27
+// console.log(friend);
+// console.log(me);
+
+// javascript primitives
+// string, number, bigint, boolean, null, undefined, symbol,
+// everything else is objects
+// objects are reference types
+// objects literal , arrays, functions, many more
+// snob n us???
+
+// how jS works behind the scenes topics for later
+// prototypal inherticane > Object Oriented Programming with jS
+// asynchronous jS: promises, async/await and AJAX
+// advanced dom and events
+
+// primitives vs. objects in practice
+// inital value
+// primtive types
+let lastName = `Williams`;
+let oldLastName = lastName;
+lastName = `Davis`;
+console.log(lastName, oldLastName); // Davis, Williams
+
+// reference types
+const jessica = {
+  firstName: `Jessica`,
+  lastName: `Williams`,
+  age: 27,
+};
+
+const marriedJessica = jessica;
+marriedJessica.lastName = `Davis`;
+// console.log(`Before marriage`, jessica);
+// console.log(`After marriage`, marriedJessica);
+
+// lastName Davis in both
+// the copy did not create a new object in the heap
+// simply just another variable that holds a reference to the original object
+// same memory adress in the heap
+
+// what if we really wanted to copy the object
+// copying objects
+
+const jessica2 = {
+  firstName: `Jessica`,
+  lastName: `Williams`,
+  age: 27,
+  family: [`Alice`, `Bob`],
+};
+
+const jessicaCopy = Object.assign({}, jessica2); // creates a completely new object
+jessicaCopy.lastName = `Davis`;
+// console.log(`Before marriage`, jessica2);
+// console.log(`After marriage`, jessicaCopy);
+// Object assign only works on the first level
+// Creates a 'Shallow Copy' or a Deep Clone
+// If an object inside an object it will not pick it up
+jessicaCopy.family.push(`Mary`); // manipulating an object within the object
+jessicaCopy.family.push(`John`);
+
+console.log(`Before marriage`, jessica2);
+console.log(`After marriage`, jessicaCopy);
